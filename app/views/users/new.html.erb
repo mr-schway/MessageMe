@@ -1,0 +1,31 @@
+<div class="ui center aligned large header"> 
+  Welcome to MessageMe - <em>a complete Chat App</em> 
+</div> 
+
+<h4 class="ui center aligned medium icon header">
+  <i class="circular yellow user plus icon"></i> 
+  Sign up to MessageMe
+</h4> 
+
+<div class="ui placeholder segment"> 
+  <div class="column"> 
+    <%= render 'shared/errors', obj: @user %> 
+    <%= form_with(model: @user, class: "iu form", local: true) do |f| %> 
+      <div class="field">
+        <%= f.label :username, "Username" %> 
+        <div class="ui left icon input">
+          <%= f.text_field :username, placeholder: "Username" %> 
+          <i class="user icon"></i>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :password, "Password" %> 
+        <div class="ui left icon input">
+          <%= f.password_field :password, placeholder: "Password" %> 
+          <i class="lock icon"></i>
+        </div>
+      </div> 
+      <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "ui yellow submit button") %> 
+    <% end %> 
+  </div> 
+</div> 
